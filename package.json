@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node build/dev.js"
+    "dev": "cross-env node build/dev.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
+    "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.20.2",
     "webpack-dev-server": "^3.1.9"
