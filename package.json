@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env node build/dev.js"
+    "dev": "cross-env type=dev node_env=dev node build/dev.js"
   },
   "author": "",
   "license": "ISC",
