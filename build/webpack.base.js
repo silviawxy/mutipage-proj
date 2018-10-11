@@ -22,23 +22,26 @@ let baseConfig = {
     mode:'development',
     entry,
     output:{
-        filename:'[name].[chunkhash].js'
+        filename:'[name].[hash].js'
     },
     module:{
         rules:[
             {
+                // 需要大括号，否则无法匹配到json文件的坑
                 test:/.(js|jsx)$/,
                 // loader:'babel-loader'
                 // use:['babel-loader']
                 use:{
-                    loader:'babel-loader',
-                    options:{
-                        presets:['react','es2015','stage-0']
-                    }
+                    loader:'babel-loader'
+                    // ,
+                    // options:{
+                    //     presets:['react','es2015','stage-0']
+                    // }
                 },
                 exclude:/node_modules/
                 
-            },{
+            },
+            {
                 test:/.scss$/,
                 use:[{loader:'style-loader'},{loader:'css-loader'},{loader:'sass-loader'}]
                 // use:{
@@ -53,11 +56,6 @@ let baseConfig = {
             // }
         ]
     },
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 9000
-    },
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js' // 在 webpack 1 中使用 'vue/dist/vue.common.js'
@@ -70,5 +68,4 @@ let baseConfig = {
         })
     ]
 }
-console.log(baseConfig);
 module.exports = baseConfig;
