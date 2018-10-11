@@ -78,6 +78,20 @@
         </div>
     </div>
     <div id="app"></div>
+    <script> 
+    window.__f = function() {
+        if (document.readyState === 'interactive') {
+        var loading$ = document.querySelector('.loading')
+        loading$.className = 'loading hide'
+        setTimeout(function() {
+            loading$.parentNode.removeChild(loading$)
+        }, 1000)
+        document.removeEventListener('readystatechange', window.__f)
+        delete window.__f
+        }
+    }
+    document.addEventListener('readystatechange', window.__f)
+    </script>
 </body>
 
 </html>
