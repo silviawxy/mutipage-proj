@@ -1,12 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>react demos</title>
+    <style>
+        .loading {
+            background: #fff;
+            position: absolute;
+            z-index: 1000;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity .3s;
+        }
+
+        .loading.show {
+            opacity: 1;
+        }
+
+        .loading.hide {
+            opacity: 0;
+        }
+
+        .loading .spinner {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0)
+        }
+
+        .circle {
+            box-sizing: border-box;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 4px solid lightgray;
+            border-left-color: #FD3541;
+            -webkit-animation: loader_rotate 1s linear infinite;
+            animation: loader_rotate 1s linear infinite
+        }
+
+        @-webkit-keyframes loader_rotate {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes loader_rotate {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- 加载特效 -->
+    <div class="loading show">
+        <div class="spinner">
+            <div class="circle"></div>
+        </div>
+    </div>
     <div id="app"></div>
 </body>
+
 </html>
