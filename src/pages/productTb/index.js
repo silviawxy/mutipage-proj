@@ -1,7 +1,7 @@
 import React  from 'react';
 import ReactDOM from 'react-dom';
 import FilterableProductTable from './components/FilterableProductTable'
-import {hot} from 'react-hot-loader';
+
 // import {json} from './utils/http.js';
 import './style.scss';
 import className from 'classnames';

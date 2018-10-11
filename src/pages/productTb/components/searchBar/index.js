@@ -1,6 +1,7 @@
 import React  from 'react';
 import ReactDOM from 'react-dom';
-export default class SearchBar extends React.Component{
+import {hot} from 'react-hot-loader';
+class SearchBar extends React.Component{
     constructor(props){
       super(props);
       this.changeHandle = this.changeHandle.bind(this);
@@ -12,3 +13,5 @@ export default class SearchBar extends React.Component{
       return (<input type="text" name="search" placeholder="Search..." onChange={this.changeHandle}/>);
     }
   }
+//   模块热加载，页面无刷新
+  export default hot(module)(SearchBar);
