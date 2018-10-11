@@ -9,6 +9,7 @@ const webpack = require('webpack'),
 const devConfig = {
     plugins:[
         new webpack.NamedModulesPlugin(),
+        // 热加载
         new webpack.HotModuleReplacementPlugin()
     ]
 }
@@ -16,12 +17,14 @@ const webpackConfig = merge(baseConfig,devConfig);
 const devServerOption = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
+    // 热加载
     hot:true,
     stats:{
         colors:true
     },
     host:'localhost'
 };
+// 热加载
 webpackDevServer.addDevServerEntrypoints(webpackConfig, devServerOption);
 const compiler = webpack(webpackConfig);
 
