@@ -24,6 +24,35 @@ let baseConfig = {
     output:{
         filename:'[name].[chunkhash].js'
     },
+    module:{
+        rules:[
+            {
+                test:/.(js|jsx)$/,
+                // loader:'babel-loader'
+                // use:['babel-loader']
+                use:{
+                    loader:'babel-loader',
+                    options:{
+                        presets:['react','es2015','stage-0']
+                    }
+                },
+                exclude:/node_modules/
+                
+            },{
+                test:/.scss$/,
+                use:[{loader:'style-loader'},{loader:'css-loader'},{loader:'sass-loader'}]
+                // use:{
+                //     loader:''
+                // }
+            }
+            // ,{
+            //     test:/.json$/,
+            //     use:{
+            //         loader:'json-loader'
+            //     }
+            // }
+        ]
+    },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
@@ -32,7 +61,8 @@ let baseConfig = {
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js' // 在 webpack 1 中使用 'vue/dist/vue.common.js'
-        }
+        },
+        extensions:['.js','.jsx']
     },
     plugins:[
         new htmlWbpackPlugins({
@@ -40,4 +70,5 @@ let baseConfig = {
         })
     ]
 }
+console.log(baseConfig);
 module.exports = baseConfig;
