@@ -1,4 +1,5 @@
-let config = {
+const qs = require('qs');
+const config = {
     csr:{
         entry:{
             index:['./src/vue/csr/index.js']
@@ -24,4 +25,14 @@ let config = {
         template:'./src/react/index.html'
     }
 }
-module.exports = config;
+let projectName = qs.parse(JSON.parse(process.env.npm_config_argv).remain.join('&'))['proj']
+if(!projectName){
+    throw new Error('请指定项目名！详情请查阅markdown文件');
+}
+
+const {entry,template} = config[projectName];
+module.exports = {
+    config,
+    entry,
+    template
+}

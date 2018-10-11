@@ -1,16 +1,22 @@
-const webpack = require('webpack'),
+const 
+    webpack = require('webpack'),
     baseConfig = require('./webpack.base.conf.js'),
     webpackDevServer = require('webpack-dev-server'),
     webpackDevMiddleware = require('webpack-dev-middleware'),
     merge = require('webpack-merge'),
     path = require('path'),
     opn = require('opn'),
-    progressBarWebpackPlugin = require('progress-bar-webpack-plugin');
+    progressBarWebpackPlugin = require('progress-bar-webpack-plugin'),
+    htmlWbpackPlugins = require('html-webpack-plugin'),
+    {template} = require('./config.js');
 
 // const server = express();
 const devConfig = {
     mode:'development',
     plugins:[
+        new htmlWbpackPlugins({
+            template
+        }),
         new webpack.NamedModulesPlugin(),
         // 热加载
         new webpack.HotModuleReplacementPlugin(),
