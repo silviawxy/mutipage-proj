@@ -1,17 +1,24 @@
 const webpack = require('webpack'),
-    baseConfig = require('./webpack.base.js'),
+    baseConfig = require('./webpack.base.conf.js'),
     webpackDevServer = require('webpack-dev-server'),
     webpackDevMiddleware = require('webpack-dev-middleware'),
     merge = require('webpack-merge'),
     path = require('path'),
-    opn = require('opn');
+    opn = require('opn'),
+    progressBarWebpackPlugin = require('progress-bar-webpack-plugin');
 
 // const server = express();
 const devConfig = {
+    mode:'development',
     plugins:[
         new webpack.NamedModulesPlugin(),
         // 热加载
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        // 进度条
+        // new progressBarWebpackPlugin({
+        //     callback:function(){
+        //     }
+        // })
     ]
 }
 const webpackConfig = merge(baseConfig,devConfig);
@@ -31,7 +38,8 @@ const compiler = webpack(webpackConfig);
 
 const server = new webpackDevServer(compiler,devServerOption);
 server.listen(2333,'127.0.0.1',()=>{
-    opn('http://127.0.0.1:2333');
+    // 自动打开浏览器
+    // opn('http://127.0.0.1:2333');
     console.log('starting server on http://127.0.0.1:2333');
 })
 // webpack(baseConfig,(err,stats)=>{

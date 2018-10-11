@@ -19,7 +19,6 @@ if(!projectName){
 // projectName = 'csr';
 let {entry,template} = config[projectName];
 let baseConfig = {
-    mode:'development',
     entry,
     output:{
         filename:'[name].[hash].js'
