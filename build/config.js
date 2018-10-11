@@ -1,27 +1,27 @@
 let config = {
     csr:{
         entry:{
-            index:['./src/pages/csr/index.js']
+            index:['./src/vue/csr/index.js']
         },
-        template:'./src/pages/csr/index.html'
+        template:'./src/vue/csr/index.html'
     },
     HOC:{
         entry:{
-            index:['./src/pages/HOC/index.js']
+            index:['./src/react/HOC/index.js']
         },
-        template:'./src/pages/HOC/index.html'
+        template:'./src/react/index.html'
     },
     productTb:{
         entry:{
-            index:['./src/pages/productTb/index.js']
+            index:['./src/react/productTb/index.js']
         },
-        template:'./src/pages/productTb/index.html'
+        template:'./src/react/index.html'
     },
     reactReduxDemo:{
         entry:{
-            index:['./src/pages/reactReduxDemo/index.js']
+            index:['./src/react/reactReduxDemo/index.js']
         },
-        template:'./src/pages/reactReduxDemo/index.html'
+        template:'./src/react/index.html'
     }
 }
 module.exports = config;

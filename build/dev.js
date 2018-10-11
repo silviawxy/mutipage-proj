@@ -3,7 +3,8 @@ const webpack = require('webpack'),
     webpackDevServer = require('webpack-dev-server'),
     webpackDevMiddleware = require('webpack-dev-middleware'),
     merge = require('webpack-merge'),
-    path = require('path');
+    path = require('path'),
+    opn = require('opn');
 
 // const server = express();
 const devConfig = {
@@ -30,6 +31,7 @@ const compiler = webpack(webpackConfig);
 
 const server = new webpackDevServer(compiler,devServerOption);
 server.listen(2333,'127.0.0.1',()=>{
+    opn('http://127.0.0.1:2333');
     console.log('starting server on http://127.0.0.1:2333');
 })
 // webpack(baseConfig,(err,stats)=>{
