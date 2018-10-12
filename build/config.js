@@ -1,4 +1,6 @@
-const qs = require('qs');
+const 
+    qs = require('qs'),
+    path = require('path');
 const config = {
     csr:{
         entry:{
@@ -34,5 +36,5 @@ const {entry,template} = config[projectName];
 module.exports = {
     config,
     entry,
-    template
+    template:path.resolve(__dirname,'../',template)
 }

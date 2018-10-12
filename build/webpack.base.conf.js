@@ -3,21 +3,11 @@ const
     config = require('./config.js'),
     qs = require('querystring'),
     {entry} = require('./config.js');
-// console.log('argv',process.argv);
-// console.log('node_env',process.env.NODE_ENV);
-// console.log('script',process.env.npm_lifecycle_script);
-// console.log('type',process.env.type);
-// fs.writeFileSync('input.json',JSON.stringify(process.env));
-
-
-// let args = Array.from(process.argv);
-
-// let projectName = process.argv.includes('')
-// projectName = 'csr';
-// let {entry,template} = config[projectName];
-let baseConfig = {
+// console.log(path.resolve(__dirname,'../dist'))
+module.exports = {
     entry,
     output:{
+        path:path.resolve(__dirname,'../dist'),
         filename:'[name].[hash].js'
     },
     module:{
@@ -62,4 +52,3 @@ let baseConfig = {
         
     ]
 }
-module.exports = baseConfig;

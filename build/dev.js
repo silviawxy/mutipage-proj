@@ -11,6 +11,12 @@ const
     {template} = require('./config.js');
 
 // const server = express();
+// console.log(template,'#####');
+// const htmlWbpackPluginsConfig = {
+//     filename: path.resolve(__dirname,'../',template)
+// }
+// console.log(JSON.stringify(htmlWbpackPluginsConfig),'$$$$$');
+// console.log(JSON.stringify({template}),'@@@@@');
 const devConfig = {
     mode:'development',
     plugins:[
