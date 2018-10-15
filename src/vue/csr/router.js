@@ -1,4 +1,5 @@
 import VueRouter from 'vue-router';
+import {loadLanguageAsync} from './setup/i18n-setup'
 const routes = [
     // {
     //     path:'/',
@@ -6,7 +7,7 @@ const routes = [
     //     component:()=>import(/* webpackChunkName:"" */ './App.vue')
     // },
     {
-        path:'/foo',
+        path:'/foo/:lang',
         name:'foo',
         component:()=>import(/* webpackChunkName:"" */ './views/Foo.vue')
     },
@@ -19,6 +20,12 @@ const routes = [
         component:()=>import(/* webpackChunkName:"" */ './views/Baz.vue')
     }
 ];
-export default new VueRouter({
+const router = new VueRouter({
     routes
 });
+router.beforeEach((to,from,next)=>{
+    const lang = to.params.lang;
+    loadLanguageAsync(lang);
+    next();
+})
+export default router;

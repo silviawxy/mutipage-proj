@@ -1,24 +1,27 @@
+import 'babel-polyfill'
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import App from './App';
 import router from './router'
 import VueRouter from 'vue-router';
+import {i18n} from './setup/i18n-setup'
+
 Vue.use(VueRouter);
-Vue.use(VueI18n);
-const i18n = new VueI18n({
-    locale:'cn',
-    messages:{
-        en:{
-            hello:"hello"
-        },
-        cn:{
-            hello:"你好",
-        },
-        ja:{
-            hello:"こんにちは、"
-        }
-    }
-})
+// Vue.use(VueI18n);
+// const i18n = new VueI18n({
+//     locale:'cn',
+//     messages:{
+//         en:{
+//             hello:"hello"
+//         },
+//         cn:{
+//             hello:"你好",
+//         },
+//         ja:{
+//             hello:"こんにちは、"
+//         }
+//     }
+// })
 new Vue({
     i18n,
     router,
